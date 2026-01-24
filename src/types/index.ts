@@ -140,3 +140,80 @@ export interface CrawlJob {
   jobs_processed: number;
   error_message?: string;
 }
+
+// JobsIT Types (Preprocessed IT Jobs)
+
+export interface JobITStats {
+  total_jobs: number;
+  active_jobs: number;
+  inactive_jobs: number;
+  jobs_by_source: Record<string, number>;
+  jobs_by_level: Record<string, number>;
+  jobs_by_prediction: Record<number, number>;
+  remote_jobs: number;
+  onsite_jobs: number;
+  avg_experience_min: number | null;
+  avg_experience_max: number | null;
+  last_updated: string;
+}
+
+export interface JobITSkillsAnalytics {
+  top_skills: SkillData[];
+  total_skills: number;
+  total_jobs_analyzed: number;
+}
+
+export interface JobITLocationsAnalytics {
+  top_locations: LocationData[];
+}
+
+export interface JobITCompaniesAnalytics {
+  top_companies: Array<{
+    company_name: string;
+    count: number;
+  }>;
+}
+
+export interface JobITLevelsAnalytics {
+  levels: LevelData[];
+}
+
+export interface JobITPredictionsAnalytics {
+  predictions: Array<{
+    prediction: number;
+    count: number;
+  }>;
+}
+
+export interface JobITExperienceAnalytics {
+  experience_ranges: Array<{
+    range: string;
+    count: number;
+  }>;
+  total_jobs: number;
+}
+
+export interface JobIT {
+  id: number;
+  title: string;
+  company_name: string | null;
+  location: string | null;
+  source: string | null;
+  source_url: string | null;
+  level: string | null;
+  job_type: string | null;
+  experience_years_min: number | null;
+  experience_years_max: number | null;
+  education_level: string | null;
+  required_skills: string[];
+  is_remote: boolean;
+  pred: number | null;
+  description: string | null;
+}
+
+export interface JobsITResponse {
+  jobs: JobIT[];
+  total: number;
+  skip: number;
+  limit: number;
+}

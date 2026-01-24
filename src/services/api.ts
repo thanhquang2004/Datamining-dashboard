@@ -56,4 +56,30 @@ export const crawlerApi = {
   cancelJob: (jobId: string) => api.delete(`/jobs/${jobId}`),
 };
 
+// JobsIT endpoints
+export const jobsITApi = {
+  getStats: () => api.get("/dashboard/jobs-it/stats"),
+  getSkills: (limit = 20, source?: string) =>
+    api.get("/dashboard/jobs-it/skills", { params: { limit, source } }),
+  getLocations: (limit = 20, source?: string) =>
+    api.get("/dashboard/jobs-it/locations", { params: { limit, source } }),
+  getCompanies: (limit = 20, source?: string) =>
+    api.get("/dashboard/jobs-it/companies", { params: { limit, source } }),
+  getLevels: (source?: string) =>
+    api.get("/dashboard/jobs-it/levels", { params: { source } }),
+  getPredictions: (source?: string) =>
+    api.get("/dashboard/jobs-it/predictions", { params: { source } }),
+  getExperience: (source?: string) =>
+    api.get("/dashboard/jobs-it/experience", { params: { source } }),
+  getJobs: (params: {
+    skip?: number;
+    limit?: number;
+    source?: string;
+    location?: string;
+    level?: string;
+    pred?: number;
+    search?: string;
+  }) => api.get("/dashboard/jobs-it", { params }),
+};
+
 export default api;

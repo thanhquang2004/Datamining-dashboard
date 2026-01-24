@@ -4,6 +4,7 @@ import { LayoutDashboard, Briefcase, Code2, Bot, Database } from "lucide-react";
 const navItems = [
   { path: "/", label: "Dashboard", icon: LayoutDashboard },
   { path: "/jobs", label: "Jobs", icon: Briefcase },
+  { path: "/jobs-it", label: "IT Jobs (Preprocessed)", icon: Database },
   { path: "/skills", label: "Skills", icon: Code2 },
   { path: "/crawler", label: "Crawler", icon: Bot },
 ];
